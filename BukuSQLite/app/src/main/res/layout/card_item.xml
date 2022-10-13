@@ -18,7 +18,8 @@
             android:text="ID Buku"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:padding="6dp"/>
+            android:padding="6dp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/tv_judul"

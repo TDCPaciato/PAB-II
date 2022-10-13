@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvBuku;
     MyDatabaseHelper myDB;
     AdapterBuku adapterBuku;
-    ArrayList<String> arrJudul, arrPenulis, arrTahun;
+    ArrayList<String> arrID, arrJudul, arrPenulis, arrTahun;
     public static int posisiData = 0;
 
     @Override
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             while (cursor.moveToNext()) {
+                arrID.add(cursor.getString(0));
                 arrJudul.add(cursor.getString(1));
                 arrPenulis.add(cursor.getString(2));
                 arrTahun.add(cursor.getString(3));
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        arrID = new ArrayList<>();
         arrJudul = new ArrayList<>();
         arrPenulis = new ArrayList<>();
         arrTahun = new ArrayList<>();
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         SQLiteToArrayList();
 
         rvBuku = findViewById(R.id.rv_buku);
-        adapterBuku = new AdapterBuku(MainActivity.this, arrJudul, arrPenulis, arrTahun);
+        adapterBuku = new AdapterBuku(MainActivity.this, arrID, arrJudul, arrPenulis, arrTahun);
         rvBuku.setAdapter(adapterBuku);
         rvBuku.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
