@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -53,7 +54,26 @@ public class AdapterBuku extends RecyclerView.Adapter<AdapterBuku.ViewHolderBuku
                 jendelaPesan.setNegativeButton("HAPUS", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        MyDatabaseHelper myDB = new MyDatabaseHelper(ctx);
+                        long eksekusi = myDB.HapusBuku(arrID.get(position).toString());
+                        
+                        if (eksekusi == -1) {
+                            Toast.makeText(ctx, "Gagal Menghapus Data!", Toast.LENGTH_SHORT).show();
+                        }
+                        
+                        else {
+                            Toast.makeText(ctx, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show();
+                            if (position == 0) {
+                                MainActivity.posisiData = 0;
+                            }
 
+                            else {
+                                MainActivity.posisiData = position -1;
+                            }
+
+                            dialogInterface.dismiss();
+                            ((MainActivity) ctx).onResume();
+                        }
                     }
                 });
 

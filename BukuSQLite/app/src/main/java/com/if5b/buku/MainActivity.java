@@ -37,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
         myDB = new MyDatabaseHelper(MainActivity.this);
     }
 
-    // Video Ke-2 menit ke 52:28
-
     public void BukaActivityTambah(View view) {
         startActivity(new Intent(MainActivity.this, TambahActivity.class));
     }
@@ -72,5 +70,6 @@ public class MainActivity extends AppCompatActivity {
         adapterBuku = new AdapterBuku(MainActivity.this, arrID, arrJudul, arrPenulis, arrTahun);
         rvBuku.setAdapter(adapterBuku);
         rvBuku.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        rvBuku.smoothScrollToPosition(posisiData);
     }
 }

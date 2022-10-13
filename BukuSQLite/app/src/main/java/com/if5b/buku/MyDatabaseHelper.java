@@ -62,6 +62,28 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return eksekusi;
     }
 
+    public long ubahBuku (String id, String judul, String penulis, int tahun){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(FIELD_JUDUL, judul);
+        cv.put(FIELD_PENULIS, penulis);
+        cv.put(FIELD_TAHUN, tahun);
+
+        long eksekusi = db.update(TABLE_NAME, cv,"id = ?", new String[] {id});
+
+        return eksekusi;
+    }
+
+    public long HapusBuku (String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        long eksekusi = db.delete(TABLE_NAME,"id = ?", new String[] {id});
+
+        return eksekusi;
+    }
+
+
     public Cursor bacaSemuaData() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();

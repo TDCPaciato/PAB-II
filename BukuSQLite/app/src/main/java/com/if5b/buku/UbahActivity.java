@@ -2,11 +2,13 @@ package com.if5b.buku;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class UbahActivity extends AppCompatActivity {
 
@@ -53,7 +55,18 @@ public class UbahActivity extends AppCompatActivity {
                     etTahun.setError("Tahun Terbit Tidak Boleh Kosong");
                 }
                 else {
-                    // video 3 menit 36:41
+                    MyDatabaseHelper myDB = new MyDatabaseHelper(UbahActivity.this);
+                    long eksekusi = myDB.ubahBuku(getID, txtJudul, txtPenulis, Integer.valueOf(txtTahun));
+
+                    if (eksekusi == -1) {
+                        Toast.makeText(UbahActivity.this, "Gagal Mengubah Data", Toast.LENGTH_SHORT).show();
+                        etJudul.requestFocus();
+                    }
+                    else {
+                        Toast.makeText(UbahActivity.this, "Berhasil Mengubah Data", Toast.LENGTH_SHORT).show();
+                        MainActivity.posisiData = getPosisi;
+                        finish();
+                    }
                 }
             }
         });
