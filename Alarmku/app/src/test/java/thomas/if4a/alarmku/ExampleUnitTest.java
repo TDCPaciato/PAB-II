@@ -1,4 +1,4 @@
-package com.if5b.alarmku;
+package thomas.if4a.alarmku;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.if5b.alarmku;
+package thomas.if4a.alarmku;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.if5b.alarmku", appContext.getPackageName());
+        assertEquals("thomas.if4a.alarmku", appContext.getPackageName());
     }
 }
