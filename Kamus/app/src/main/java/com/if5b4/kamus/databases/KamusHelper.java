@@ -10,6 +10,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 
 import com.if5b4.kamus.models.Kamus;
 
@@ -95,8 +96,29 @@ public class KamusHelper {
         return arrayList;
     }
 
+    public void beginTransaction() {
+        database.beginTransaction();
+    }
 
-    public int insertDataEnglishIndonesia(Kamus kamus) {
+    public void setTransactionSuccess() {
+        database.setTransactionSuccessful();
+    }
+
+    public void endTransaction() {
+        database.endTransaction();
+    }
+
+    public void insertTransactionDataEnglishIndonesia(Kamus kamus) {
+        String sql = "INSERT INTO " + TABLE_ENGLISH_INDONESIA_NAME + " (" +
+                ENGLISH_INDONESIA_TITLE + ", " + ENGLISH_INDONESIA_DESCRIPTION + " ) VALUES (?, ?)";
+        SQLiteStatement stmt = database.compileStatement(sql);
+        stmt.bindString(1, kamus.getTitle());
+        stmt.bindString(2, kamus.getDescription());
+        stmt.execute();
+        stmt.clearBindings();
+    }
+
+    public long insertDataEnglishIndonesia(Kamus kamus) {
         ContentValues cv = new ContentValues();
         cv.put(ENGLISH_INDONESIA_TITLE, kamus.getTitle());
         cv.put(ENGLISH_INDONESIA_DESCRIPTION, kamus.getDescription());
