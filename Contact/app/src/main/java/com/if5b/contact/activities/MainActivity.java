@@ -26,8 +26,8 @@ import com.if5b.contact.loaders.getDataLoader;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int GETALLDATA_LOADER = 123;
-    private static final int DELETE_LOADER_CODE = 123;
+    private static final int GETDATA_LOADER = 123;
+    private static final int DELETE_LOADER_CODE = 124;
     private ActivityMainBinding binding;
     private ActivityResultLauncher<Intent> intentActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
@@ -44,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.fabInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, InputActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -54,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getData() {
         showProgressBar();
-        LoaderManager.getInstance(this).restartLoader(123, null, new LoaderManager.LoaderCallbacks<List<User>>() {
+        LoaderManager.getInstance(this).restartLoader(GETDATA_LOADER, null, new LoaderManager.LoaderCallbacks<List<User>>() {
             @NonNull
             @Override
             public Loader<List<User>> onCreateLoader(int id, @Nullable Bundle args) {
@@ -71,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             public void onLoaderReset(@NonNull Loader<List<User>> loader) {
 
             }
-        });
+        }).forceLoad();
     }
 
     private void initAdapter(List<User> data) {
@@ -123,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
             public void onLoaderReset(@NonNull Loader<Integer> loader) {
 
             }
-        });
+        }).forceLoad();
     }
 
     private void itemDeleted() {
