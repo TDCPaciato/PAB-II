@@ -1,5 +1,7 @@
 package com.if5a.tulisaja.models;
 
+import java.util.List;
+
 public class ValueNoData {
     private int success;
     private String message;

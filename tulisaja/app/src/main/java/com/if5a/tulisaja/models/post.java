@@ -9,7 +9,7 @@ public class post {
     @SerializedName("user_id")
     private String userId;
 
-    @SerializedName("create_date")
+    @SerializedName("created_date")
     private String createDate;
 
     @SerializedName("modified_date")

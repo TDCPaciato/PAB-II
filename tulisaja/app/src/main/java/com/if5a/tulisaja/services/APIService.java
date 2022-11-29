@@ -1,6 +1,8 @@
 package com.if5a.tulisaja.services;
 
+import com.if5a.tulisaja.models.ValueData;
 import com.if5a.tulisaja.models.ValueNoData;
+import com.if5a.tulisaja.models.post;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -22,7 +24,7 @@ public interface APIService {
 
     @POST("getAllPost")
     @FormUrlEncoded
-    Call<ValueNoData> getAll(@Field("key") String key);
+    Call<ValueData<post>> getAll(@Field("key") String key);
 
     @POST("insertPost")
     @FormUrlEncoded
