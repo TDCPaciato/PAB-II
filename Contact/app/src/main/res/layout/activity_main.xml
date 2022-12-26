@@ -14,14 +14,14 @@
 
     <ProgressBar
         android:id="@+id/progress_bar"
-        style="?android:progressBarStyleLarge"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:indeterminateTint="@color/purple_500"/>
+        android:indeterminateTint="#8339ED"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_input"
@@ -31,7 +31,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="16dp"
         android:src="@drawable/ic_add_24"
-        app:backgroundTint="@color/purple_500"
-        app:tint="@color/white"/>
+        app:tint="@color/white"
+        app:backgroundTint="#B39DD3"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

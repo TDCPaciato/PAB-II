@@ -1,0 +1,56 @@
+package com.if5b.mnag.tulisaja.adapters;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.if5b.mnag.tulisaja.R;
+import com.if5b.mnag.tulisaja.models.Post;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.ViewHolder> {
+    private List<Post> data = new ArrayList<>();
+
+    public void setData(List<Post> data){
+        this.data = data;
+        notifyDataSetChanged();
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_post, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Post post = data.get(position);
+        holder.tvContent.setText(post.getContent());
+        holder.tvUsername.setText(post.getUsername());
+        holder.tvDate.setText(post.getCreatedDate());
+    }
+
+    @Override
+    public int getItemCount() {
+        return data.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView tvContent, tvUsername, tvDate;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            tvContent = itemView.findViewById(R.id.tv_content);
+            tvUsername = itemView.findViewById(R.id.tv_username);
+            tvDate = itemView.findViewById(R.id.tv_date);
+        }
+    }
+}

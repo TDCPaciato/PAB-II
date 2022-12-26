@@ -13,8 +13,7 @@
         android:theme="@style/Theme.BelanjaKu"
         tools:targetApi="31">
         <activity
-            android:name=".ActivityInsert"
-            android:parentActivityName=".MainActivity"
+            android:name=".InsertActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

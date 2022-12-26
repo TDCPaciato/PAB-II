@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.if5b4.kamus'
+    namespace 'com.if5b.mnag.kamus'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.if5b4.kamus"
+        applicationId "com.if5b.mnag.kamus"
         minSdk 22
         targetSdk 32
         versionCode 1

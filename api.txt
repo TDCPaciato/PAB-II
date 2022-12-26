@@ -1,0 +1,85 @@
+baseURL : "https://restapi.mdp.ac.id/tulisaja/"
+
+function Name:
+[POST] loginUser
+  -key : dirumahaja
+  -username
+  -password
+
+Contoh Response JSON:
+{
+  "success": 0,
+  "message": "Invalid Key!"
+}
+
+[POST] registerUser
+  -key : dirumahaja
+  -username
+  -password
+
+Contoh Response JSON:
+{
+  "success": 0,
+  "message": "Invalid Key!"
+}
+
+[POST] getAllPost
+  -key : dirumahaja
+  -username
+  -password
+
+Contoh Response JSON:
+{
+  "success": 1,
+  "message": "Restrieve Data Successs!"
+  "data": [
+	   {
+		"id": "26",
+		"content": "mantap soul",
+		"user_id": "12",
+		"created_date": "2021-06-13 06:39:19",
+		"modified_date": null,
+		"username": "1822250011"
+	   },
+	   {
+		"id": "25",
+		"content": "halo bro",
+		"user_id": "6",
+		"created_date": "2021-06-12 10:14:33",
+		"modified_date": null,
+		"username": "1822250004"
+	   }
+		]
+}
+
+[POST] insertPost
+  -key : dirumahaja
+  -username
+  -content
+
+Contoh Response JSON:
+{
+  "success": 0,
+  "message": "Invalid Key!"
+}
+
+[POST] updatePost
+  -key : dirumahaja
+  -id
+  -content
+
+Contoh Response JSON:
+{
+  "success": 0,
+  "message": "Invalid Key!"
+}
+
+[POST] deletePost
+  -key : dirumahaja
+  -id
+
+Contoh Response JSON:
+{
+  "success": 0,
+  "message": "Invalid Key!"
+}

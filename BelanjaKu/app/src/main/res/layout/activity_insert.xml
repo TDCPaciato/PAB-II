@@ -4,54 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityInsert">
-
+    tools:context=".InsertActivity">
     <LinearLayout
-        android:id="@+id/ll_judul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:layout_centerInParent="true"
-        android:paddingHorizontal="32dp">
+        android:layout_marginRight="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_centerInParent="true">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BelanjaKu"
-            android:textSize="24sp"
-            android:textStyle="bold"/>
-
+            android:id="@+id/tvJudulLayout"
+            android:text="INPUT BELANJAAN ANDA"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp"/>
         <EditText
-            android:id="@+id/et_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ID"/>
-
+            android:id="@+id/etnama"
+            android:hint="Masukkan Nama Barang yang dibeli"
+            android:textSize="20sp"
+            android:layout_marginTop="6dp"
+            android:inputType="text"/>
         <EditText
-            android:id="@+id/et_nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="NAMA"/>
-
+            android:id="@+id/etkategori"
+            android:hint="Masukkan Nama Barang yang dibeli"
+            android:textSize="20sp"
+            android:layout_marginTop="6dp"
+            android:inputType="text"/>
         <EditText
-            android:id="@+id/et_kategori"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="KATEGORI"/>
-
-        <EditText
-            android:id="@+id/et_harga"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="HARGA"/>
-
+            android:id="@+id/etharga"
+            android:hint="Masukkan Nama Barang yang dibeli"
+            android:textSize="20sp"
+            android:layout_marginTop="6dp"
+            android:inputType="number"/>
         <Button
-            android:id="@+id/btn_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ADD"
+            android:id="@+id/btntambah"
+            android:text="TAMBAH"
             android:layout_marginTop="32dp"/>
+
 
     </LinearLayout>
 

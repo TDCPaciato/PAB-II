@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
@@ -19,7 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.8"
-            android:hint="Masukkan kata pencarian..."/>
+            android:hint="Masukkan Kata Pencarian..."/>
 
         <Button
             android:id="@+id/btn_search"
@@ -28,7 +27,7 @@
             android:layout_weight="0.2"
             android:text="Cari"
             android:textColor="@color/white"
-            android:backgroundTint="@color/purple_500"/>
+            android:backgroundTint="@color/purple_700"/>
 
     </LinearLayout>
 
@@ -36,7 +35,6 @@
         android:id="@+id/rv_kamus"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ll_search"
+        android:layout_below="@id/ll_search"
         android:layout_marginTop="8dp"/>
-
 </RelativeLayout>
